@@ -9,7 +9,7 @@ const services = [
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80',
     title: 'Consultoria',
     description: 'Atendimento online personalizado com hora marcada para resolver suas demandas específicas.',
-    link: '/servicos/consultoria',
+    link: '/servicos',
     icon: <FaArrowRight />,
   },
   {
@@ -17,7 +17,7 @@ const services = [
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80',
     title: 'Assessoria',
     description: 'Acompanhamento contínuo do seu negócio, disponível nas modalidades online ou presencial.',
-    link: '/servicos/assessoria',
+    link: '/servicos',
     icon: <FaArrowRight />,
   },
   {
@@ -25,7 +25,7 @@ const services = [
     image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80',
     title: 'Mentoria',
     description: 'Programa estruturado com 8 encontros para desenvolver habilidades específicas.',
-    link: '/servicos/mentoria',
+    link: '/servicos',
     icon: <FaArrowRight />,
   },
   {
@@ -33,7 +33,7 @@ const services = [
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80',
     title: 'Academy',
     description: 'Treinamentos exclusivos com temas variados e vagas limitadas ao longo do ano.',
-    link: '/servicos/academy',
+    link: '/servicos',
     icon: <FaArrowRight />,
   }
 ];

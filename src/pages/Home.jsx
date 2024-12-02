@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaChartLine, FaUsers, FaLightbulb, FaCog } from 'react-icons/fa';
+import { FaChartLine, FaUsers, FaLightbulb, FaCog, FaArrowRight } from 'react-icons/fa';
 import Banner from '../components/Banner';
 import Services from '../components/Services';
 import Stats from '../components/Stats';

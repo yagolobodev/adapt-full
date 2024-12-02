@@ -22,7 +22,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSticky ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isSticky ? 'bg-[#002060] shadow-lg' : 'bg-transparent'}`}>
       {/* Top Bar */}
       <div className="bg-gray-100 py-2 text-sm hidden lg:block">
         <div className="container mx-auto px-4">
@@ -76,31 +76,25 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-8">
             <Link
               to="/"
-              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-gray-800 hover:text-[#002060]' : 'text-white hover:text-white/80'}`}
+              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-white hover:text-white/80' : 'text-white hover:text-white/80'}`}
             >
               Home
             </Link>
             <Link
               to="/sobre"
-              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-gray-800 hover:text-[#002060]' : 'text-white hover:text-white/80'}`}
+              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-white hover:text-white/80' : 'text-white hover:text-white/80'}`}
             >
               Sobre
             </Link>
             <Link
               to="/servicos"
-              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-gray-800 hover:text-[#002060]' : 'text-white hover:text-white/80'}`}
+              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-white hover:text-white/80' : 'text-white hover:text-white/80'}`}
             >
               Serviços
             </Link>
             <Link
-              to="/cases"
-              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-gray-800 hover:text-[#002060]' : 'text-white hover:text-white/80'}`}
-            >
-              Cases
-            </Link>
-            <Link
               to="/contato"
-              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-gray-800 hover:text-[#002060]' : 'text-white hover:text-white/80'}`}
+              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-white hover:text-white/80' : 'text-white hover:text-white/80'}`}
             >
               Contato
             </Link>
@@ -112,7 +106,7 @@ const Header = () => {
               onClick={toggleSidebar}
               className={`p-2 rounded-lg transition-colors duration-300 ${
                 isSticky 
-                  ? 'text-gray-800 hover:bg-gray-100' 
+                  ? 'text-white hover:bg-white/10' 
                   : 'text-white hover:bg-white/10'
               }`}
             >

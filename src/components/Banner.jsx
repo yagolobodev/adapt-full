@@ -9,23 +9,23 @@ import { HiArrowRight } from 'react-icons/hi';
 const Banner = () => {
   const slides = [
     {
-      title: "Crescimento sustentável através de gestão estratégica",
+      title: "Transformamos suas metas em resultados reais para seu negócio",
       subtitle: "Consultoria Estratégica",
-      description: "Potencialize o crescimento do seu negócio com estratégias inovadoras e resultados comprovados.",
+      description: "Não apenas consultores, somos parceiros do seu sucesso",
       image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80",
       cta: "Iniciar Jornada",
     },
     {
-      title: "Resultados mensuráveis em vendas, lucro e caixa",
+      title: "Não apenas consultores, somos parceiros do seu sucesso",
       subtitle: "Excelência em Gestão",
-      description: "Maximize o potencial da sua empresa com soluções personalizadas e métricas tangíveis.",
+      description: "Maximizamos vendas, lucro e caixa com gestão estratégica comprovada",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80",
       cta: "Descobrir Mais",
     },
     {
-      title: "Transformação estratégica com metodologia própria",
+      title: "Maximizamos vendas, lucro e caixa com gestão estratégica comprovada",
       subtitle: "Soluções Futuras",
-      description: "Desenvolva uma cultura de excelência e inovação para crescimento contínuo.",
+      description: "Transformamos suas metas em resultados reais para seu negócio",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
       cta: "Explorar Soluções",
     },

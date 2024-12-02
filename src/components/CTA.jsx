@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaBuilding, FaChartLine, FaUsers } from 'react-icons/fa';
+import { FaArrowRight, FaRocket, FaLightbulb, FaChartLine } from 'react-icons/fa';
 
 const CTA = () => {
   const revenueOptions = [
@@ -28,15 +28,16 @@ const CTA = () => {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#002060] to-[#001040]">
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white/5 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/10 to-transparent"></div>
+    <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#002060] via-[#001850] to-[#001040]">
+      {/* Animated Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5 animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#002060]/20 to-transparent"></div>
+      </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -45,47 +46,51 @@ const CTA = () => {
             transition={{ duration: 0.6 }}
             className="text-white lg:sticky lg:top-24"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="flex -space-x-2">
-                {[...Array(3)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="w-12 h-12 rounded-full border-2 border-white/20 bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center"
-                  >
-                    {i === 0 && <FaBuilding className="w-5 h-5 text-white/80" />}
-                    {i === 1 && <FaChartLine className="w-5 h-5 text-white/80" />}
-                    {i === 2 && <FaUsers className="w-5 h-5 text-white/80" />}
-                  </div>
-                ))}
+            {/* Benefits Section */}
+            <div className="space-y-6 mb-8">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400/20 to-cyan-400/20 flex items-center justify-center">
+                  <FaRocket className="w-6 h-6 text-blue-400" />
+                </div>
+                <span className="text-lg text-white/90">Acelere seu crescimento</span>
               </div>
-              <span className="text-white/80">+2000 clientes satisfeitos</span>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400/20 to-cyan-400/20 flex items-center justify-center">
+                  <FaLightbulb className="w-6 h-6 text-blue-400" />
+                </div>
+                <span className="text-lg text-white/90">Soluções personalizadas</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400/20 to-cyan-400/20 flex items-center justify-center">
+                  <FaChartLine className="w-6 h-6 text-blue-400" />
+                </div>
+                <span className="text-lg text-white/90">Resultados comprovados</span>
+              </div>
             </div>
 
             <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Transforme seu
+              Pronto para
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                Negócio Hoje
+                Transformar seu Negócio?
               </span>
             </h2>
             
             <p className="text-white/80 text-lg mb-8 max-w-xl leading-relaxed">
-              Nossa consultoria especializada está pronta para impulsionar seus resultados
-              com soluções personalizadas e estratégias inovadoras.
+              Junte-se a centenas de empresários que já transformaram seus negócios com nossa consultoria.
+              Dê o primeiro passo para o crescimento exponencial da sua empresa.
             </p>
 
-            {/* Social Proof */}
-            <div className="grid grid-cols-3 gap-6 p-6 bg-[#FF0000]/10 rounded-2xl backdrop-blur-sm mb-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">94%</div>
-                <div className="text-sm text-white/60">Satisfação</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">+500</div>
-                <div className="text-sm text-white/60">Projetos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">12</div>
-                <div className="text-sm text-white/60">Anos</div>
+            <div className="p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10">
+              <p className="text-white/90 italic">
+                "A consultoria da Adapt foi um divisor de águas para nossa empresa. Em apenas 6 meses, 
+                aumentamos nosso faturamento em 150%."
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-400/20"></div>
+                <div>
+                  <p className="text-white font-medium">João Silva</p>
+                  <p className="text-white/60 text-sm">CEO, TechSolutions</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -96,8 +101,13 @@ const CTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white p-8 rounded-2xl shadow-xl"
+            className="bg-white p-8 rounded-2xl shadow-xl backdrop-blur-lg border border-white/20"
           >
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-2">Inicie sua Transformação</h3>
+              <p className="text-gray-600">Preencha o formulário abaixo e receba uma análise personalizada do seu negócio.</p>
+            </div>
+
             <form className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -193,18 +203,11 @@ const CTA = () => {
 
               <button
                 type="submit"
-                className="w-full bg-[#002060] text-white py-4 px-6 rounded-xl font-medium hover:bg-[#002060]/90 transition-colors flex items-center justify-center gap-2 group"
+                className="w-full bg-gradient-to-r from-[#002060] to-[#001040] text-white py-4 px-6 rounded-xl font-medium hover:from-[#001040] hover:to-[#002060] transition-all duration-300 flex items-center justify-center gap-2 group transform hover:scale-[1.02]"
               >
-                Receber uma proposta
+                Quero transformar meu negócio
                 <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-
-              <p className="text-sm text-gray-500 text-center">
-                Ao enviar, você concorda com nossa{' '}
-                <a href="#" className="text-[#002060] hover:underline">
-                  Política de Privacidade
-                </a>
-              </p>
             </form>
           </motion.div>
         </div>

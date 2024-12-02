@@ -6,26 +6,26 @@ const ProcessSection = () => {
   const steps = [
     {
       icon: <HiOutlineClipboardList className="w-8 h-8" />,
-      title: "Planejamento",
-      description: "Análise detalhada e desenvolvimento de estratégias personalizadas.",
+      title: "Primeiro Contato",
+      description: "Preencha nosso formulário de contato com suas informações iniciais.",
       color: "bg-[#002060]/5 text-[#002060]"
     },
     {
       icon: <HiOutlineChatAlt2 className="w-8 h-8" />,
-      title: "Consultoria",
-      description: "Orientação especializada para alcançar seus objetivos de negócio.",
+      title: "Diagnóstico",
+      description: "Agendamos uma conversa para entender suas necessidades e avaliar como podemos ajudar seu negócio.",
       color: "bg-[#002060]/5 text-[#002060]"
     },
     {
       icon: <HiOutlinePresentationChartLine className="w-8 h-8" />,
-      title: "Crescimento",
-      description: "Implementação de soluções que impulsionam seu crescimento.",
+      title: "Proposta",
+      description: "Apresentamos detalhadamente nossa metodologia, investimento, prazo e retorno esperado.",
       color: "bg-[#002060]/5 text-[#002060]"
     },
     {
       icon: <HiOutlineLightBulb className="w-8 h-8" />,
-      title: "Sucesso",
-      description: "Resultados mensuráveis e sucesso sustentável a longo prazo.",
+      title: "Decisão",
+      description: "Você decide se faz sentido para seu contexto atual, sem compromissos ou surpresas.",
       color: "bg-[#002060]/5 text-[#002060]"
     }
   ];
@@ -40,7 +40,7 @@ const ProcessSection = () => {
             viewport={{ once: true }}
             className="text-4xl font-bold text-[#002060] mb-4"
           >
-            Nosso Processo de Trabalho
+            Como Contratar a Adapt
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ const ProcessSection = () => {
             transition={{ delay: 0.2 }}
             className="text-gray-600 max-w-2xl mx-auto"
           >
-            Uma abordagem estruturada para transformar seu negócio
+            Conheça os próximos passos para iniciar sua transformação empresarial
           </motion.p>
         </div>
 

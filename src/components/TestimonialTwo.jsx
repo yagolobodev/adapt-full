@@ -4,7 +4,6 @@ import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/module
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 
 const testimonials = [
@@ -38,23 +37,45 @@ const testimonials = [
     content:
       'A metodologia única da Adapt Full nos ajudou a otimizar processos e aumentar nossa receita em 25% em apenas 6 meses.',
   },
+  {
+    id: 4,
+    name: 'Mariana Costa',
+    role: 'Diretora Financeira',
+    company: 'GrupoMax',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80',
+    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80',
+    content:
+      'Com a consultoria da Adapt Full, conseguimos reduzir custos em 30% e aumentar nossa margem de lucro significativamente.',
+  },
+  {
+    id: 5,
+    name: 'Pedro Almeida',
+    role: 'Diretor Comercial',
+    company: 'VendaMais',
+    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80',
+    logo: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&q=80',
+    content:
+      'A mentoria oferecida transformou nossa equipe de vendas. Batemos recordes de faturamento nos últimos três trimestres.',
+  },
+  {
+    id: 6,
+    name: 'Isabela Santos',
+    role: 'CEO',
+    company: 'FuturoTech',
+    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80',
+    logo: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80',
+    content:
+      'O programa de desenvolvimento de lideranças da Adapt Full foi fundamental para o crescimento sustentável da nossa empresa.',
+  }
 ];
 
 function TestimonialTwo() {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <div className="text-center md:text-left mb-8 md:mb-0">
-            <span className="text-[#FF0100] font-semibold text-lg block mb-2">Nossos Depoimentos</span>
-            <h2 className="text-4xl font-bold text-[#002060]">O que nossos clientes dizem</h2>
-          </div>
-          <Link
-            to="/depoimentos"
-            className="text-[#002060] font-semibold hover:text-[#FF0100] transition-colors duration-300"
-          >
-            Ver Todos
-          </Link>
+        <div className="text-center mb-12">
+          <span className="text-[#FF0100] font-semibold text-lg block mb-2">Nossos Depoimentos</span>
+          <h2 className="text-4xl font-bold text-[#002060]">O que nossos clientes dizem</h2>
         </div>
 
         <div className="relative">
@@ -62,7 +83,10 @@ function TestimonialTwo() {
             modules={[Navigation, Scrollbar, A11y, EffectFade, Autoplay]}
             spaceBetween={30}
             slidesPerView={1}
-            navigation
+            navigation={{
+              nextEl: '.swiper-button-next-testimonial',
+              prevEl: '.swiper-button-prev-testimonial',
+            }}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
@@ -73,7 +97,7 @@ function TestimonialTwo() {
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="pb-12"
+            className="testimonials-swiper px-12"
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id}>
@@ -110,6 +134,18 @@ function TestimonialTwo() {
               </SwiperSlide>
             ))}
           </Swiper>
+          
+          {/* Custom Navigation Buttons */}
+          <div className="swiper-button-prev-testimonial absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer z-10 hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#002060" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </div>
+          <div className="swiper-button-next-testimonial absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer z-10 hover:bg-gray-50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#002060" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </div>
         </div>
       </div>
     </section>

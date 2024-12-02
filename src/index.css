@@ -56,6 +56,83 @@
   opacity: 1;
 }
 
+/* Swiper Custom Styles */
+.diferenciais-swiper .swiper-button-prev,
+.diferenciais-swiper .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  display: none;
+}
+
+.diferenciais-swiper .swiper-button-prev:hover,
+.diferenciais-swiper .swiper-button-next:hover {
+  background: #f9fafb;
+}
+
+.diferenciais-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.diferenciais-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #e5e7eb;
+  opacity: 1;
+}
+
+.diferenciais-swiper .swiper-pagination-bullet-active {
+  background: rgb(207 0 15);
+}
+
+.services-swiper .swiper-button-prev,
+.services-swiper .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  display: none;
+}
+
+.services-swiper .swiper-button-prev:hover,
+.services-swiper .swiper-button-next:hover {
+  background: #f9fafb;
+}
+
+.services-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.services-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #e5e7eb;
+  opacity: 1;
+}
+
+.services-swiper .swiper-pagination-bullet-active {
+  background: rgb(207 0 15);
+}
+
+@media (min-width: 768px) {
+  .diferenciais-swiper .swiper-button-prev,
+  .diferenciais-swiper .swiper-button-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .services-swiper .swiper-button-prev,
+  .services-swiper .swiper-button-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 /* Scrollbar customization */
 ::-webkit-scrollbar {
   @apply w-2;
