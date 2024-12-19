@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
-import { FaStar } from 'react-icons/fa';
+import { FaStar, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const testimonials = [
   {
@@ -40,6 +40,15 @@ const testimonials = [
 ];
 
 function TestimonialTwo() {
+  const [expandedCards, setExpandedCards] = useState({});
+
+  const toggleCard = (id) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-4">
@@ -70,52 +79,71 @@ function TestimonialTwo() {
             className="testimonials-swiper px-12"
           >
             {testimonials.map((testimonial) => (
-              <SwiperSlide key={testimonial.id}>
-                <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col">
-                  <div className="mb-6">
-                    <img
-                      src={testimonial.logo}
-                      alt={testimonial.company}
-                      className="h-12 w-auto object-contain opacity-80"
-                    />
-                  </div>
+              <SwiperSlide key={testimonial.id} className="h-auto">
+                <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col justify-between">
+                  <div className="flex flex-col h-full">
+                    <div className="mb-6">
+                      <img
+                        src={testimonial.logo}
+                        alt={testimonial.company}
+                        className="h-12 w-auto object-contain opacity-80"
+                      />
+                    </div>
 
-                  <div className="review-body flex-grow">
-                    <p className="text-gray-600 leading-relaxed mb-6 text-lg">
-                      "{testimonial.content}"
-                    </p>
-                  </div>
+                    <div className={`flex-grow mb-6 relative ${!expandedCards[testimonial.id] ? 'max-h-[180px] overflow-hidden' : ''}`}>
+                      <p className="text-gray-600 leading-relaxed text-lg">
+                        "{testimonial.content}"
+                      </p>
+                      {!expandedCards[testimonial.id] && (
+                        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent"></div>
+                      )}
+                    </div>
 
-                  <div className="flex items-center mt-6 pt-6 border-t border-gray-100">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-14 h-14 rounded-full object-cover border-2 border-gray-100"
-                    />
-                    <div className="ml-4">
-                      <h6 className="font-semibold text-[#002060] text-lg">
-                        {testimonial.name}
-                      </h6>
-                      <span className="text-gray-500 block">{testimonial.role}</span>
-                      <span className="text-[#FF0100] text-sm">{testimonial.company}</span>
+                    <button
+                      onClick={() => toggleCard(testimonial.id)}
+                      className="text-primary hover:text-primary-dark transition-colors mb-4 flex items-center justify-center gap-2 w-full"
+                    >
+                      {expandedCards[testimonial.id] ? (
+                        <>
+                          Ler menos <FaChevronUp className="text-sm" />
+                        </>
+                      ) : (
+                        <>
+                          Ler mais <FaChevronDown className="text-sm" />
+                        </>
+                      )}
+                    </button>
+
+                    <div className="flex items-center pt-6 border-t border-gray-100">
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-14 h-14 rounded-full object-cover border-2 border-gray-100"
+                      />
+                      <div className="ml-4">
+                        <h6 className="font-semibold text-[#002060] text-lg">
+                          {testimonial.name}
+                        </h6>
+                        <span className="text-gray-500 block">{testimonial.role}</span>
+                        <span className="text-[#FF0100] text-sm">{testimonial.company}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-          
-          {/* Custom Navigation Buttons */}
-          <div className="swiper-button-prev-testimonial absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer z-10 hover:bg-gray-50 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#002060" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+
+          <button className="swiper-button-prev-testimonial absolute left-0 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg z-10 flex items-center justify-center text-primary hover:text-primary-dark transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-          </div>
-          <div className="swiper-button-next-testimonial absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer z-10 hover:bg-gray-50 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#002060" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+          </button>
+          <button className="swiper-button-next-testimonial absolute right-0 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg z-10 flex items-center justify-center text-primary hover:text-primary-dark transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </div>
+          </button>
         </div>
       </div>
     </section>
