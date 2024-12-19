@@ -101,7 +101,7 @@ const ClientLogos = () => {
                 <img
                   src={client.logo}
                   alt={`${client.name} logo`}
-                  className="max-h-16 w-auto filter grayscale hover:grayscale-0 transition-all duration-300"
+                  className="max-h-16 w-auto transition-all duration-300"
                 />
               </div>
             </SwiperSlide>
