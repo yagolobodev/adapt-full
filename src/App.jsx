@@ -4,6 +4,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Contact from './pages/Contact';
+import BeConsultant from './pages/BeConsultant';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/servicos" element={<Services />} />
             <Route path="/servico/:id" element={<ServiceDetail />} />
             <Route path="/contato" element={<Contact />} />
+            <Route path="/seja-consultor" element={<BeConsultant />} />
           </Routes>
         </div>
         <Footer />

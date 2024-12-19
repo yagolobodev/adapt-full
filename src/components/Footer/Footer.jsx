@@ -14,6 +14,7 @@ const Footer = () => {
     { name: 'Sobre Nós', path: '/sobre' },
     { name: 'Serviços', path: '/servicos' },
     { name: 'Contato', path: '/contato' },
+    { name: 'Seja um Consultor', path: '/seja-consultor' },
   ];
 
   const contactInfo = [
@@ -52,25 +53,23 @@ const Footer = () => {
             </p>
             <Link
               to="/contato"
-              className="inline-flex items-center px-6 py-3 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-md transition-colors"
+              className="inline-flex items-center text-white hover:text-secondary transition-colors"
             >
-              Solicitar Proposta
+              Entre em Contato <FaChevronRight className="ml-2" />
             </Link>
           </div>
 
-          {/* Quick Links Section */}
-          <div className="lg:col-span-2">
-            <h5 className="text-lg font-semibold mb-4 pb-2 border-b border-gray-700">
-              Links Rápidos
-            </h5>
-            <ul className="space-y-3">
+          {/* Quick Links */}
+          <div className="lg:col-span-3">
+            <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
+            <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link.path}>
+                <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="inline-flex items-center text-gray-300 hover:text-secondary transition-colors"
+                    className="text-gray-300 hover:text-white transition-colors inline-flex items-center"
                   >
-                    <FaChevronRight className="w-3 h-3 mr-2" />
+                    <FaChevronRight className="mr-2 text-xs" />
                     {link.name}
                   </Link>
                 </li>
@@ -78,19 +77,17 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services Section */}
+          {/* Services */}
           <div className="lg:col-span-3">
-            <h5 className="text-lg font-semibold mb-4 pb-2 border-b border-gray-700">
-              Nossos Serviços
-            </h5>
-            <ul className="space-y-3">
+            <h4 className="text-lg font-semibold mb-4">Serviços</h4>
+            <ul className="space-y-2">
               {services.map((service) => (
-                <li key={service.path}>
+                <li key={service.name}>
                   <Link
                     to={service.path}
-                    className="inline-flex items-center text-gray-300 hover:text-secondary transition-colors"
+                    className="text-gray-300 hover:text-white transition-colors inline-flex items-center"
                   >
-                    <FaChevronRight className="w-3 h-3 mr-2" />
+                    <FaChevronRight className="mr-2 text-xs" />
                     {service.name}
                   </Link>
                 </li>
@@ -99,30 +96,26 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="lg:col-span-4">
-            <h5 className="text-lg font-semibold mb-4 pb-2 border-b border-gray-700">
-              Informações de Contato
-            </h5>
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                    {info.icon}
-                  </div>
-                  <div>
-                    <span className="block text-sm text-gray-400">{info.label}</span>
-                    <a
-                      href={info.link}
-                      className="text-gray-300 hover:text-secondary transition-colors"
-                      target={info.icon === <FaMapMarkerAlt /> ? '_blank' : undefined}
-                      rel={info.icon === <FaMapMarkerAlt /> ? 'noopener noreferrer' : undefined}
-                    >
-                      {info.value}
-                    </a>
-                  </div>
-                </div>
+          <div className="lg:col-span-3">
+            <h4 className="text-lg font-semibold mb-4">Contato</h4>
+            <ul className="space-y-4">
+              {contactInfo.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.link}
+                    className="group flex items-start hover:text-secondary transition-colors"
+                  >
+                    <span className="mr-3 mt-1 text-secondary group-hover:text-white transition-colors">
+                      {item.icon}
+                    </span>
+                    <div>
+                      <span className="block text-sm text-gray-400">{item.label}</span>
+                      <span className="block">{item.value}</span>
+                    </div>
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
 

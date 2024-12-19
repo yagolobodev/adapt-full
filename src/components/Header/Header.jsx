@@ -93,6 +93,12 @@ const Header = () => {
               Serviços
             </Link>
             <Link
+              to="/seja-consultor"
+              className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-white hover:text-white/80' : 'text-white hover:text-white/80'}`}
+            >
+              Seja um Consultor
+            </Link>
+            <Link
               to="/contato"
               className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-white hover:text-white/80' : 'text-white hover:text-white/80'}`}
             >

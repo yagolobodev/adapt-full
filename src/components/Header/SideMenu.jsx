@@ -7,6 +7,7 @@ const SideMenu = ({ isSidebarOpen, toggleSidebar }) => {
     { path: '/', label: 'Home' },
     { path: '/sobre', label: 'Sobre' },
     { path: '/servicos', label: 'Serviços' },
+    { path: '/seja-consultor', label: 'Seja um Consultor' },
     { path: '/contato', label: 'Contato' },
   ];
 
