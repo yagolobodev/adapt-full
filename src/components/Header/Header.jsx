@@ -93,10 +93,10 @@ const Header = () => {
               Serviços
             </Link>
             <Link
-              to="/seja-consultor"
+              to="/seja-um-consultor"
               className={`text-sm font-medium transition-colors duration-300 ${isSticky ? 'text-white hover:text-white/80' : 'text-white hover:text-white/80'}`}
             >
-              Seja um Consultor
+              Consultores Associados
             </Link>
             <Link
               to="/contato"

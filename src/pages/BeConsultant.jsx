@@ -7,32 +7,59 @@ const consultants = [
   {
     name: 'Ely Guimarães Neto',
     role: 'Consultor / CEO Adapt',
-    region: 'Maringá PR e Região',
+    region: 'Nacional',
     image: '/consultores/ely-ceo-adapt.jpg',
-    specialties: ['Gestão Empresarial', 'Estratégia', 'Liderança']
+    specialties: ['Lucratividade', 'Tributação', 'Gestão estratégica de custos']
   },
   {
-    name: 'Ely Guimarães Neto',
-    role: 'Consultor / CEO Adapt',
-    region: 'Maringá PR e Região',
-    image: '/consultores/ely-ceo-adapt.jpg',
-    specialties: ['Gestão Empresarial', 'Estratégia', 'Liderança']
+    name: 'Davi Guimarães',
+    role: 'Consultor de Negócios',
+    region: 'Maringá e Região',
+    image: '/consultores/davi-guimaraes.png',
+    specialties: ['Inteligência de negócios', 'Planejamento estratégico']
   },
   {
-    name: 'Ely Guimarães Neto',
-    role: 'Consultor / CEO Adapt',
-    region: 'Maringá PR e Região',
-    image: '/consultores/ely-ceo-adapt.jpg',
-    specialties: ['Gestão Empresarial', 'Estratégia', 'Liderança']
+    name: 'Rivelino Bugica',
+    role: 'Consultor de Negócios',
+    region: 'Maringá e Região',
+    image: '/consultores/Rivelino.png',
+    specialties: ['Direito Trabalhista', 'Recursos humanos']
   },
   {
-    name: 'Ely Guimarães Neto',
-    role: 'Consultor / CEO Adapt',
-    region: 'Maringá PR e Região',
-    image: '/consultores/ely-ceo-adapt.jpg',
-    specialties: ['Gestão Empresarial', 'Estratégia', 'Liderança']
+    name: 'Lucinéia Freitas',
+    role: 'Consultor de Negócios',
+    region: 'Maringá e Região',
+    image: '/consultores/Lucinéia.png',
+    specialties: ['Inteligência de negócios', 'Planejamento estratégico']
   },
-  // Adicione mais consultores aqui
+  {
+    name: 'Bruno Felipe',
+    role: 'Consultor de Negócios',
+    region: 'Maringá e Região',
+    image: '/consultores/Bruno.png',
+    specialties: ['Gestão de Processos']
+  },
+  {
+    name: 'Barbara Durrer',
+    role: 'Consultor de Negócios',
+    region: 'São Paulo – Região Metropolitana',
+    image: '/consultores/barbara-durrer.png',
+    specialties: ['Gestão de Processos']
+  },
+  {
+    name: 'Amauri Crozariori',
+    role: 'Consultor de Negócios',
+    region: 'Maringá e Região',
+    image: '/consultores/amauri-crozariori.png',
+    specialties: ['Planejamento Estratégico em vendas']
+  },
+  {
+    name: 'Valéria Souza',
+    role: 'Consultor de Negócios',
+    region: 'Maringá e Região',
+    image: '/consultores/valeria-souza.png',
+    specialties: ['Inteligência de negócios', 'Planejamento estratégico']
+  }
 ];
 
 const benefits = [

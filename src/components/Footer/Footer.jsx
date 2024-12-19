@@ -14,7 +14,7 @@ const Footer = () => {
     { name: 'Sobre Nós', path: '/sobre' },
     { name: 'Serviços', path: '/servicos' },
     { name: 'Contato', path: '/contato' },
-    { name: 'Seja um Consultor', path: '/seja-consultor' },
+    { name: 'Consultores Associados', path: '/seja-um-consultor' },
   ];
 
   const contactInfo = [

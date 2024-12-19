@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import BeConsultant from './pages/BeConsultant';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
@@ -21,9 +22,10 @@ function App() {
             <Route path="/servicos" element={<Services />} />
             <Route path="/servico/:id" element={<ServiceDetail />} />
             <Route path="/contato" element={<Contact />} />
-            <Route path="/seja-consultor" element={<BeConsultant />} />
+            <Route path="/seja-um-consultor" element={<BeConsultant />} />
           </Routes>
         </div>
+        <WhatsAppButton />
         <Footer />
       </div>
     </Router>

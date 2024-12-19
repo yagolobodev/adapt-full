@@ -77,12 +77,15 @@ function TestimonialTwo() {
                 prevEl: '.swiper-button-prev-testimonial',
               }}
               autoplay={{
-                delay: 5000,
+                delay: 3000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
+                waitForTransition: true,
               }}
               loop={true}
-              speed={500}
+              loopedSlides={testimonials.length}
+              speed={800}
+              grabCursor={true}
               breakpoints={{
                 640: {
                   slidesPerView: 1,
