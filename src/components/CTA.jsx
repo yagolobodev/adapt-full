@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaRocket, FaLightbulb, FaChartLine } from 'react-icons/fa';
+import { sendEmail } from '../utils/emailService';
 
 const CTA = () => {
   const revenueOptions = [
@@ -26,6 +27,78 @@ const CTA = () => {
     "Tecnologia",
     "Outro"
   ];
+
+  const [formData, setFormData] = useState({
+    companyName: '',
+    segment: '',
+    revenue: '',
+    name: '',
+    phone: '',
+    email: '',
+    stage: '',
+    challenge: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ text: '', type: '' });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage({ text: '', type: '' });
+
+    try {
+      const templateParams = {
+        to_email: 'contato@adaptconsultoria.com.br',
+        from_name: formData.name,
+        company_name: formData.companyName,
+        segment: formData.segment,
+        revenue: formData.revenue,
+        phone: formData.phone,
+        email: formData.email,
+        stage: formData.stage,
+        challenge: formData.challenge
+      };
+
+      const result = await sendEmail(templateParams);
+      
+      if (result.success) {
+        setMessage({
+          text: 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
+          type: 'success'
+        });
+        setFormData({
+          companyName: '',
+          segment: '',
+          revenue: '',
+          name: '',
+          phone: '',
+          email: '',
+          stage: '',
+          challenge: ''
+        });
+      } else {
+        setMessage({
+          text: 'Erro ao enviar mensagem. Por favor, tente novamente.',
+          type: 'error'
+        });
+      }
+    } catch (error) {
+      setMessage({
+        text: 'Erro ao enviar mensagem. Por favor, tente novamente.',
+        type: 'error'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="relative py-24 overflow-hidden bg-gradient-to-br from-[#002060] via-[#001850] to-[#001040]">
@@ -79,20 +152,6 @@ const CTA = () => {
               Junte-se a centenas de empresários que já transformaram seus negócios com nossa consultoria.
               Dê o primeiro passo para o crescimento exponencial da sua empresa.
             </p>
-
-            <div className="p-6 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/10">
-              <p className="text-white/90 italic">
-                "A consultoria da Adapt foi um divisor de águas para nossa empresa. Em apenas 6 meses, 
-                aumentamos nosso faturamento em 150%."
-              </p>
-              <div className="mt-4 flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-400/20"></div>
-                <div>
-                  <p className="text-white font-medium">João Silva</p>
-                  <p className="text-white/60 text-sm">CEO, TechSolutions</p>
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right Column - Form */}
@@ -108,15 +167,19 @@ const CTA = () => {
               <p className="text-gray-600">Preencha o formulário abaixo e receba uma análise personalizada do seu negócio.</p>
             </div>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Nome da sua empresa
                 </label>
                 <input
                   type="text"
+                  name="companyName"
+                  value={formData.companyName}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                   placeholder="Digite o nome da empresa"
+                  required
                 />
               </div>
 
@@ -124,7 +187,13 @@ const CTA = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Qual o segmento da sua empresa?
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors">
+                <select
+                  name="segment"
+                  value={formData.segment}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
+                  required
+                >
                   <option value="">Selecione o segmento</option>
                   {segmentOptions.map((option) => (
                     <option key={option} value={option}>{option}</option>
@@ -136,7 +205,13 @@ const CTA = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Qual o faturamento mensal da sua empresa?
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors">
+                <select
+                  name="revenue"
+                  value={formData.revenue}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
+                  required
+                >
                   <option value="">Selecione o faturamento</option>
                   {revenueOptions.map((option) => (
                     <option key={option} value={option}>{option}</option>
@@ -151,8 +226,12 @@ const CTA = () => {
                   </label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                     placeholder="Seu nome"
+                    required
                   />
                 </div>
                 <div>
@@ -161,8 +240,12 @@ const CTA = () => {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                     placeholder="(00) 00000-0000"
+                    required
                   />
                 </div>
               </div>
@@ -173,8 +256,12 @@ const CTA = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                   placeholder="seu@email.com.br"
+                  required
                 />
               </div>
 
@@ -182,7 +269,13 @@ const CTA = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Em qual estágio você está?
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors">
+                <select
+                  name="stage"
+                  value={formData.stage}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
+                  required
+                >
                   <option value="">Selecione o estágio</option>
                   {stageOptions.map((option) => (
                     <option key={option} value={option}>{option}</option>
@@ -195,18 +288,35 @@ const CTA = () => {
                   Qual seu principal desafio?
                 </label>
                 <textarea
+                  name="challenge"
+                  value={formData.challenge}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                   rows="3"
                   placeholder="Descreva seu principal desafio"
+                  required
                 ></textarea>
               </div>
 
+              {message.text && (
+                <div className={`p-4 rounded-lg ${message.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                  {message.text}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#002060] to-[#001040] text-white py-4 px-6 rounded-xl font-medium hover:from-[#001040] hover:to-[#002060] transition-all duration-300 flex items-center justify-center gap-2 group transform hover:scale-[1.02]"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-[#002060] to-[#001040] text-white py-4 px-6 rounded-xl font-medium hover:from-[#001040] hover:to-[#002060] transition-all duration-300 flex items-center justify-center gap-2 group transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Quero transformar meu negócio
-                <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {loading ? (
+                  'Enviando...'
+                ) : (
+                  <>
+                    Quero transformar meu negócio
+                    <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

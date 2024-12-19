@@ -3,10 +3,10 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaChevronRight } from 'react-ic
 
 const Footer = () => {
   const services = [
-    { name: 'Consultoria', path: '/servico/consultoria' },
-    { name: 'Assessoria', path: '/servico/assessoria' },
-    { name: 'Mentoria', path: '/servico/mentoria' },
-    { name: 'Academy', path: '/servico/academy' },
+    { name: 'Consultoria', path: '/servicos' },
+    { name: 'Assessoria', path: '/servicos' },
+    { name: 'Mentoria', path: '/servicos' },
+    { name: 'Academy', path: '/servicos' },
   ];
 
   const quickLinks = [
@@ -20,19 +20,19 @@ const Footer = () => {
     {
       icon: <FaPhoneAlt className="w-4 h-4" />,
       label: 'Fale Conosco',
-      value: '(11) 99999-9999',
-      link: 'tel:+5511999999999',
+      value: '44 99152-2905',
+      link: 'tel:+5544991522905',
     },
     {
       icon: <FaEnvelope className="w-4 h-4" />,
       label: 'Email',
-      value: 'contato@adaptfull.com.br',
-      link: 'mailto:contato@adaptfull.com.br',
+      value: 'contato@adaptconsultoria.com.br',
+      link: 'mailto:contato@adaptconsultoria.com.br',
     },
     {
       icon: <FaMapMarkerAlt className="w-4 h-4" />,
       label: 'Localização',
-      value: 'Av. Paulista, 1000 - São Paulo, SP',
+      value: 'Av. Carneiro Leão, 294, Zona Armazem - Maringá PR',
       link: 'https://maps.google.com',
     },
   ];

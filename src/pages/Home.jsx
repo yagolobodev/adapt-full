@@ -9,6 +9,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import TestimonialTwo from '../components/TestimonialTwo';
 import CTA from '../components/CTA';
 import ProcessSection from '../components/Timeline';
+import ClientLogos from '../components/ClientLogos';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <WhyChooseUs />
       <ProcessSection />
       <TestimonialTwo />
+      <ClientLogos />
       <CTA />
     </main>
   );

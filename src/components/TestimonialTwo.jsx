@@ -9,63 +9,33 @@ import { FaStar } from 'react-icons/fa';
 const testimonials = [
   {
     id: 1,
-    name: 'Ricardo Silva',
-    role: 'CEO',
-    company: 'TechBrasil',
-    avatar: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80',
-    logo: 'https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?auto=format&fit=crop&q=80',
+    name: 'Fabiana Castro',
+    role: 'Gerente Financeira',
+    company: 'Grupo Pakita',
+    avatar: '/depoimentos/Fabiana Castro.jpeg',
+    logo: '/depoimentos/grupopakita.png',
     content:
-      'A Adapt Full transformou nossa abordagem estratégica, resultando em um aumento de 40% na eficiência operacional e melhor satisfação dos clientes.',
+      'A competência e o profissionalismo demonstrados em todas as etapas do processo tributário foram fundamentais para otimizar nossos processos e garantir tomadas certas de decisões. A consultoria vai além das nossas expectativas, oferece soluções personalizadas e esclarece todas as nossas dúvidas de forma clara e eficiente. Sem dúvida, a parceria com a Adapt tem sido de grande valor para o nosso crescimento e sucesso.',
   },
   {
     id: 2,
-    name: 'Ana Martins',
-    role: 'Diretora de Operações',
-    company: 'Inovação S.A.',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80',
-    logo: 'https://images.unsplash.com/photo-1516876437184-593fda40c7ce?auto=format&fit=crop&q=80',
+    name: 'Paulo Henrique',
+    role: 'Administrador',
+    company: 'Ramo Selvagem / Di Luck',
+    avatar: '/depoimentos/depoimento-paulo-henrique.png',
+    logo: '/depoimentos/ramo-selvagem.png',
     content:
-      'O profissionalismo e expertise da equipe são impressionantes. Implementaram soluções que superaram nossas expectativas.',
+      'A Adapt Consultoria está com nossa empresa a quase 5 anos, profissional competente e comprometido. Ao buscar consultorias hoje esperamos profissionais sérios, que nos guie e abram nossa mente para vermos mais claramente os cenários, fazendo assim, tornam nossas tomadas de decisão mais assertivas.',
   },
   {
     id: 3,
-    name: 'Carlos Eduardo',
-    role: 'Gerente de Projetos',
-    company: 'Nexus Corp',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80',
-    logo: 'https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&q=80',
+    name: 'Primo Raffagnato',
+    role: 'Administrador Motopar',
+    company: 'Motopar',
+    avatar: '/depoimentos/depimento-primo-raffagnato.png',
+    logo: '/depoimentos/motopar.png',
     content:
-      'A metodologia única da Adapt Full nos ajudou a otimizar processos e aumentar nossa receita em 25% em apenas 6 meses.',
-  },
-  {
-    id: 4,
-    name: 'Mariana Costa',
-    role: 'Diretora Financeira',
-    company: 'GrupoMax',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80',
-    content:
-      'Com a consultoria da Adapt Full, conseguimos reduzir custos em 30% e aumentar nossa margem de lucro significativamente.',
-  },
-  {
-    id: 5,
-    name: 'Pedro Almeida',
-    role: 'Diretor Comercial',
-    company: 'VendaMais',
-    avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80',
-    logo: 'https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&fit=crop&q=80',
-    content:
-      'A mentoria oferecida transformou nossa equipe de vendas. Batemos recordes de faturamento nos últimos três trimestres.',
-  },
-  {
-    id: 6,
-    name: 'Isabela Santos',
-    role: 'CEO',
-    company: 'FuturoTech',
-    avatar: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80',
-    logo: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80',
-    content:
-      'O programa de desenvolvimento de lideranças da Adapt Full foi fundamental para o crescimento sustentável da nossa empresa.',
+      'A Adapt Consultoria nos ajuda a controlar nossos impostos mensais, nos permite pagar apenas o que é correto segunda a legislação tributária. Nos orienta sobre a lucratividade da nossa empresa e nos acompanhamentos dos serviços de contabilidade que são terceirizados.',
   }
 ];
 

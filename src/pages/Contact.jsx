@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaPhone, FaEnvelope, FaClock, FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
+import { sendEmail } from '../utils/emailService';
 
 export default function Contact() {
   const { scrollYProgress } = useScroll();
@@ -35,32 +36,72 @@ export default function Contact() {
     email: '',
     phone: '',
     company: '',
-    service: '',
-    message: '',
+    segment: '',
+    revenue: '',
+    stage: '',
+    challenge: ''
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you would typically handle the form submission
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      service: '',
-      message: '',
-    });
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-  };
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState({ text: '', type: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
-      [name]: value,
+      [name]: value
     }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage({ text: '', type: '' });
+
+    try {
+      const templateParams = {
+        to_email: 'contato@adaptconsultoria.com.br',
+        from_name: formData.name,
+        company_name: formData.company,
+        segment: formData.segment,
+        revenue: formData.revenue,
+        phone: formData.phone,
+        email: formData.email,
+        stage: formData.stage,
+        challenge: formData.challenge
+      };
+
+      const result = await sendEmail(templateParams);
+      
+      if (result.success) {
+        setMessage({
+          text: 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
+          type: 'success'
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          segment: '',
+          revenue: '',
+          stage: '',
+          challenge: ''
+        });
+      } else {
+        setMessage({
+          text: 'Erro ao enviar mensagem. Por favor, tente novamente.',
+          type: 'error'
+        });
+      }
+    } catch (error) {
+      setMessage({
+        text: 'Erro ao enviar mensagem. Por favor, tente novamente.',
+        type: 'error'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -130,7 +171,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">Telefone</h3>
-                    <p className="text-gray-600">(11) 99999-9999</p>
+                    <p className="text-gray-600">44 99152-2905</p>
                   </div>
                 </div>
 
@@ -140,7 +181,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">E-mail</h3>
-                    <p className="text-gray-600">contato@adapt.com.br</p>
+                    <p className="text-gray-600">contato@adaptconsultoria.com.br</p>
                   </div>
                 </div>
 
@@ -150,7 +191,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">Endereço</h3>
-                    <p className="text-gray-600">São Paulo, SP</p>
+                    <p className="text-gray-600">Av. Carneiro Leão, 294, Zona Armazem - Maringá PR</p>
                   </div>
                 </div>
               </div>
@@ -181,6 +222,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                     placeholder="Digite o nome da empresa"
+                    required
                   />
                 </div>
 
@@ -189,10 +231,11 @@ export default function Contact() {
                     Qual o segmento da sua empresa?
                   </label>
                   <select
-                    name="service"
-                    value={formData.service}
+                    name="segment"
+                    value={formData.segment}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
+                    required
                   >
                     <option value="">Selecione o segmento</option>
                     {segmentOptions.map((option) => (
@@ -210,6 +253,7 @@ export default function Contact() {
                     value={formData.revenue}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
+                    required
                   >
                     <option value="">Selecione o faturamento</option>
                     {revenueOptions.map((option) => (
@@ -230,6 +274,7 @@ export default function Contact() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                       placeholder="Seu nome"
+                      required
                     />
                   </div>
                   <div>
@@ -243,6 +288,7 @@ export default function Contact() {
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                       placeholder="(00) 00000-0000"
+                      required
                     />
                   </div>
                 </div>
@@ -258,6 +304,7 @@ export default function Contact() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                     placeholder="seu@email.com.br"
+                    required
                   />
                 </div>
 
@@ -270,6 +317,7 @@ export default function Contact() {
                     value={formData.stage}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
+                    required
                   >
                     <option value="">Selecione o estágio</option>
                     {stageOptions.map((option) => (
@@ -283,21 +331,35 @@ export default function Contact() {
                     Qual seu principal desafio?
                   </label>
                   <textarea
-                    name="message"
-                    value={formData.message}
+                    name="challenge"
+                    value={formData.challenge}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl bg-gray-50 border-gray-200 focus:border-[#002060] focus:ring-[#002060] transition-colors"
                     rows="3"
                     placeholder="Descreva seu principal desafio"
+                    required
                   ></textarea>
                 </div>
 
+                {message.text && (
+                  <div className={`p-4 rounded-lg ${message.type === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                    {message.text}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-[rgb(207,0,15)] to-[rgba(207,0,15,0.8)] text-white py-4 px-6 rounded-xl font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 group"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-[#002060] to-[#001040] text-white py-4 px-6 rounded-xl font-medium hover:from-[#001040] hover:to-[#002060] transition-all duration-300 flex items-center justify-center gap-2 group transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Enviar Formulário
-                  <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                  {loading ? (
+                    'Enviando...'
+                  ) : (
+                    <>
+                      Enviar mensagem
+                      <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </button>
               </form>
             </motion.div>
