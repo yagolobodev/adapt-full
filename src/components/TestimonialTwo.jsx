@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import { FaStar, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const testimonials = [
   {
@@ -36,6 +35,16 @@ const testimonials = [
     logo: '/depoimentos/motopar.png',
     content:
       'A Adapt Consultoria nos ajuda a controlar nossos impostos mensais, nos permite pagar apenas o que é correto segunda a legislação tributária. Nos orienta sobre a lucratividade da nossa empresa e nos acompanhamentos dos serviços de contabilidade que são terceirizados.',
+  },
+  {
+    id: 4,
+    name: 'Roni',
+    role: 'CEO',
+    company: 'Natural One',
+    avatar: '/depoimentos/Roni-Natural-One.png',
+    logo: '/depoimentos/logotipo-natural-one.png',
+    content:
+      'A Adapt vem sendo muito importante para as definições de nosso futuro, são essenciais no planejamento. Com eles, as decisões são mais acertivas.',
   }
 ];
 
@@ -58,30 +67,41 @@ function TestimonialTwo() {
         </div>
 
         <div className="relative">
-          <Swiper
-            modules={[Navigation, Scrollbar, A11y, EffectFade, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            navigation={{
-              nextEl: '.swiper-button-next-testimonial',
-              prevEl: '.swiper-button-prev-testimonial',
-            }}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="testimonials-swiper px-12"
-          >
-            {testimonials.map((testimonial) => (
-              <SwiperSlide key={testimonial.id} className="h-auto">
-                <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col justify-between">
-                  <div className="flex flex-col h-full">
+          <div className="px-12">
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={24}
+              slidesPerView={1}
+              navigation={{
+                nextEl: '.swiper-button-next-testimonial',
+                prevEl: '.swiper-button-prev-testimonial',
+              }}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              loop={true}
+              speed={500}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 24,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 24,
+                },
+              }}
+              className="testimonials-swiper"
+            >
+              {testimonials.map((testimonial) => (
+                <SwiperSlide key={testimonial.id}>
+                  <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col min-h-[450px]">
                     <div className="mb-6">
                       <img
                         src={testimonial.logo}
@@ -90,30 +110,31 @@ function TestimonialTwo() {
                       />
                     </div>
 
-                    <div className={`flex-grow mb-6 relative ${!expandedCards[testimonial.id] ? 'max-h-[180px] overflow-hidden' : ''}`}>
-                      <p className="text-gray-600 leading-relaxed text-lg">
+                    <div className={`relative flex-grow ${testimonial.content.length > 200 ? (!expandedCards[testimonial.id] ? 'min-h-[180px] max-h-[180px] overflow-hidden' : 'min-h-[180px]') : 'min-h-[180px]'}`}>
+                      <p className="text-gray-600 leading-relaxed text-lg mb-6">
                         "{testimonial.content}"
                       </p>
-                      {!expandedCards[testimonial.id] && (
+                      {testimonial.content.length > 200 && !expandedCards[testimonial.id] && (
                         <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent"></div>
                       )}
                     </div>
 
-                    <button
-                      onClick={() => toggleCard(testimonial.id)}
-                      className="text-primary hover:text-primary-dark transition-colors mb-4 flex items-center justify-center gap-2 w-full"
-                    >
-                      {expandedCards[testimonial.id] ? (
-                        <>
-                          Ler menos <FaChevronUp className="text-sm" />
-                        </>
-                      ) : (
-                        <>
-                          Ler mais <FaChevronDown className="text-sm" />
-                        </>
-                      )}
-                    </button>
-
+                    {testimonial.content.length > 200 && (
+                      <button
+                        onClick={() => toggleCard(testimonial.id)}
+                        className="text-primary hover:text-primary-dark transition-colors mb-4 flex items-center justify-center gap-2 w-full"
+                      >
+                        {expandedCards[testimonial.id] ? (
+                          <>
+                            Ler menos <FaChevronUp className="text-sm" />
+                          </>
+                        ) : (
+                          <>
+                            Ler mais <FaChevronDown className="text-sm" />
+                          </>
+                        )}
+                      </button>
+                    )}
                     <div className="flex items-center pt-6 border-t border-gray-100">
                       <img
                         src={testimonial.avatar}
@@ -129,10 +150,10 @@ function TestimonialTwo() {
                       </div>
                     </div>
                   </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
 
           <button className="swiper-button-prev-testimonial absolute left-0 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg z-10 flex items-center justify-center text-primary hover:text-primary-dark transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

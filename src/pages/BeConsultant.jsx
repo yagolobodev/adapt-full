@@ -25,6 +25,13 @@ const consultants = [
     image: '/consultores/ely-ceo-adapt.jpg',
     specialties: ['Gestão Empresarial', 'Estratégia', 'Liderança']
   },
+  {
+    name: 'Ely Guimarães Neto',
+    role: 'Consultor / CEO Adapt',
+    region: 'Maringá PR e Região',
+    image: '/consultores/ely-ceo-adapt.jpg',
+    specialties: ['Gestão Empresarial', 'Estratégia', 'Liderança']
+  },
   // Adicione mais consultores aqui
 ];
 
@@ -233,7 +240,7 @@ export default function BeConsultant() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {consultants.map((consultant, index) => (
               <motion.div
                 key={consultant.name}
@@ -246,7 +253,7 @@ export default function BeConsultant() {
                   <img
                     src={consultant.image}
                     alt={consultant.name}
-                    className="w-full h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-[300px] object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                 </div>
