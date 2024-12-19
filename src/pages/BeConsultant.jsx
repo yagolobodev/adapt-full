@@ -29,7 +29,7 @@ const consultants = [
     name: 'Lucinéia Freitas',
     role: 'Consultor de Negócios',
     region: 'Maringá e Região',
-    image: '/consultores/Lucinéia.png',
+    image: '/consultores/lucineia.png',
     specialties: ['Inteligência de negócios', 'Planejamento estratégico']
   },
   {
