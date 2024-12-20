@@ -59,8 +59,8 @@ const Banner = () => {
                     filter: 'brightness(0.6) saturate(1.2)',
                   }}
                 />
-                {/* Navy Blue Overlay */}
-                <div className="absolute inset-0 bg-navy/50" style={{ backgroundColor: 'rgba(0, 32, 96, 0.5)' }} />
+                {/* Black Overlay */}
+                <div className="absolute inset-0 bg-black/50" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }} />
                 {/* Content Container */}
                 <div className="container mx-auto h-full relative">
                   <div className="flex items-center justify-center h-full pt-32">
