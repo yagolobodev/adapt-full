@@ -97,6 +97,21 @@ export default function About() {
                   Cada elemento de nossa essência foi cuidadosamente desenvolvido para garantir que possamos oferecer o melhor serviço e valor aos nossos clientes, sempre mantendo o compromisso com a excelência e a inovação.
                 </p>
               </div>
+
+              {/* Video Section */}
+              <div className="mt-8">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                  <video
+                    className="w-full aspect-video object-cover"
+                    controls
+                    poster="/images/video-thumbnail.jpg"
+                  >
+                    <source src="/videos/Video-Adapt.mp4" type="video/mp4" />
+                    Seu navegador não suporta a tag de vídeo.
+                  </video>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                </div>
+              </div>
             </motion.div>
 
             {/* Right Column - Accordion */}
