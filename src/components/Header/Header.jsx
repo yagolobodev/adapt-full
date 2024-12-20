@@ -41,16 +41,28 @@ const Header = () => {
               <div className="flex items-center space-x-4">
                 <span className="text-gray-600">Siga-nos:</span>
                 <div className="flex space-x-3">
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                  <a 
+                    href="https://www.facebook.com/Adaptconsultoria.com.br/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 hover:text-[#002060] transition-colors"
+                  >
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-                    <i className="fab fa-twitter" />
-                  </a>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                  <a 
+                    href="https://br.linkedin.com/company/adaptconsultoriabr" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 hover:text-[#002060] transition-colors"
+                  >
                     <i className="fab fa-linkedin-in" />
                   </a>
-                  <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                  <a 
+                    href="https://www.instagram.com/adapt.consultoria/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-gray-400 hover:text-[#002060] transition-colors"
+                  >
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
