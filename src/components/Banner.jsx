@@ -26,7 +26,7 @@ const Banner = () => {
       title: "Maximizamos vendas, lucro e caixa com gestão estratégica comprovada",
       subtitle: "Soluções Futuras",
       description: "Transformamos suas metas em resultados reais para seu negócio",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
       cta: "Explorar Soluções",
     },
   ];
