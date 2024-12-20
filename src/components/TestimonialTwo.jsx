@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import { FaChevronDown, FaChevronUp, FaQuoteRight } from 'react-icons/fa';
 
 const testimonials = [
@@ -11,6 +12,7 @@ const testimonials = [
     name: 'Fabiana Castro',
     role: 'Gerente Financeira',
     company: 'Grupo Pakita',
+    website: 'https://loja.grupopakita.com.br/',
     avatar: '/depoimentos/Fabiana Castro.jpeg',
     logo: '/depoimentos/grupopakita.png',
     content:
@@ -21,6 +23,7 @@ const testimonials = [
     name: 'Paulo Henrique',
     role: 'Administrador',
     company: 'Ramo Selvagem / Di Luck',
+    website: 'https://useramo.com.br/',
     avatar: '/depoimentos/depoimento-paulo-henrique.png',
     logo: '/depoimentos/ramo-selvagem.png',
     content:
@@ -31,6 +34,7 @@ const testimonials = [
     name: 'Primo Raffagnato',
     role: 'Administrador Motopar',
     company: 'Motopar',
+    website: 'https://www.motopar.com.br/',
     avatar: '/depoimentos/depimento-primo-raffagnato.png',
     logo: '/depoimentos/motopar.png',
     content:
@@ -41,6 +45,7 @@ const testimonials = [
     name: 'Roni',
     role: 'CEO',
     company: 'Natural One',
+    website: 'https://www.naturalone.com.br/',
     avatar: '/depoimentos/Roni-Natural-One.png',
     logo: '/depoimentos/logotipo-natural-one.png',
     content:
@@ -69,12 +74,18 @@ function TestimonialTwo() {
 
         <div className="relative px-4">
           <Swiper
-            modules={[Navigation, Autoplay]}
+            modules={[Navigation, Autoplay, Pagination]}
             spaceBetween={24}
             slidesPerView={1}
             navigation={{
               nextEl: '.swiper-button-next-testimonial',
               prevEl: '.swiper-button-prev-testimonial',
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              bulletActiveClass: 'swiper-pagination-bullet-active',
+              bulletClass: 'swiper-pagination-bullet',
             }}
             autoplay={{
               delay: 5000,
@@ -93,7 +104,7 @@ function TestimonialTwo() {
                 spaceBetween: 32,
               },
             }}
-            className="testimonials-swiper !pb-12"
+            className="testimonials-swiper !pb-16"
           >
             {testimonials.map((testimonial) => (
               <SwiperSlide key={testimonial.id} className="h-auto">
@@ -101,11 +112,18 @@ function TestimonialTwo() {
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#002060] to-[#FF0100] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl"></div>
                   
                   <div className="flex items-center justify-between mb-8">
-                    <img
-                      src={testimonial.logo}
-                      alt={testimonial.company}
-                      className="h-10 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                    />
+                    <a 
+                      href={testimonial.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group-hover:opacity-100 transition-opacity duration-300"
+                    >
+                      <img
+                        src={testimonial.logo}
+                        alt={testimonial.company}
+                        className="h-10 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    </a>
                     <FaQuoteRight className="text-2xl text-[#FF0100]/20 group-hover:text-[#FF0100]/40 transition-colors duration-300" />
                   </div>
 
@@ -146,7 +164,14 @@ function TestimonialTwo() {
                         {testimonial.name}
                       </h6>
                       <span className="text-gray-500 text-sm block">{testimonial.role}</span>
-                      <span className="text-[#FF0100] text-sm">{testimonial.company}</span>
+                      <a 
+                        href={testimonial.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#FF0100] text-sm hover:text-[#002060] transition-colors duration-300"
+                      >
+                        {testimonial.company}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -173,6 +198,22 @@ function TestimonialTwo() {
         }
         .swiper-slide {
           height: auto;
+        }
+        .swiper-pagination {
+          bottom: 0 !important;
+        }
+        .swiper-pagination-bullet {
+          width: 8px;
+          height: 8px;
+          background: #002060;
+          opacity: 0.3;
+          transition: all 0.3s ease;
+        }
+        .swiper-pagination-bullet-active {
+          opacity: 1;
+          width: 24px;
+          border-radius: 4px;
+          background: #FF0100;
         }
       `}</style>
     </section>
