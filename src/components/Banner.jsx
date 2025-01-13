@@ -16,7 +16,7 @@ const Banner = () => {
       cta: "Iniciar Jornada",
     },
     {
-      title: "Um caminho correto e necessário<br>Apoio Especializado",
+      title: "Um caminho correto e necessário Apoio Especializado",
       subtitle: "Excelência em Gestão",
       description: "Nos dedicamos a cada projeto de maneira intensa. Mergulhamos com profundidade nos objetivos específicos de cada cliente.",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80",
