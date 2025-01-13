@@ -9,23 +9,23 @@ import { HiArrowRight } from 'react-icons/hi';
 const Banner = () => {
   const slides = [
     {
-      title: "Transformamos suas metas em resultados reais para seu negócio",
+      title: "Uma Parceria para Potencializar",
       subtitle: "Consultoria Estratégica",
-      description: "Não apenas consultores, somos parceiros do seu sucesso",
+      description: "Ajudamos as organizações na construção de um futuro próspero e sustentável. Continuaremos no propósito de sermos reconhecidos como o parceiro ideal nessa jornada.",
       image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80",
       cta: "Iniciar Jornada",
     },
     {
-      title: "Não apenas consultores, somos parceiros do seu sucesso",
+      title: "Um caminho correto e necessário<br>Apoio Especializado",
       subtitle: "Excelência em Gestão",
-      description: "Maximizamos vendas, lucro e caixa com gestão estratégica comprovada",
+      description: "Nos dedicamos a cada projeto de maneira intensa. Mergulhamos com profundidade nos objetivos específicos de cada cliente.",
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80",
       cta: "Descobrir Mais",
     },
     {
-      title: "Maximizamos vendas, lucro e caixa com gestão estratégica comprovada",
+      title: "A Verdadeira Razão da Nossa Existência é Deixar a Vida de Nossos Clientes Melhor",
       subtitle: "Soluções Futuras",
-      description: "Transformamos suas metas em resultados reais para seu negócio",
+      description: "Qual ajuda você precisa hoje ? Existe alguma coisa que poderia ser melhor na sua empresa ? Mais fácil, mais econômico, mais bonito ou ao menos,  com menos dor ? Nós podemos te ajudar.",
       image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
       cta: "Explorar Soluções",
     },

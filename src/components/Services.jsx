@@ -24,7 +24,7 @@ const services = [
     id: 3,
     image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80',
     title: 'Mentoria',
-    description: 'Programa estruturado com 8 encontros para desenvolver habilidades específicas.',
+    description: 'Programa estruturados para desenvolver habilidades em gestão estratégicas e resolver problemas específicos.',
     link: '/servicos',
     icon: <FaArrowRight />,
   },
@@ -32,7 +32,7 @@ const services = [
     id: 4,
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80',
     title: 'Academy',
-    description: 'Treinamentos exclusivos com temas variados e vagas limitadas ao longo do ano.',
+    description: 'Treinamentos exclusivos na área de gestão estratégica e desenvolvimento de Pessoas.',
     link: '/servicos',
     icon: <FaArrowRight />,
   }

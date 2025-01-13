@@ -68,8 +68,8 @@ function TestimonialTwo() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-[#FF0100] font-semibold text-lg block mb-3">Nossos Depoimentos</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#002060] mb-4">O que nossos clientes dizem</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">Conheça as experiências de quem já transformou seu negócio com nossa consultoria</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#002060] mb-4">Não sou eu quem está falando</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">São CEO’S e Diretores de Empresas Reconhecidas no Mercado</p>
         </div>
 
         <div className="relative px-4">
