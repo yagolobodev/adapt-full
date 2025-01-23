@@ -9,23 +9,29 @@ import { HiArrowRight } from 'react-icons/hi';
 const Banner = () => {
   const slides = [
     {
-      title: "Uma Parceria para Potencializar",
+      title: ["Uma ", "Parceria", " para ", "Potencializar"],
+      titleHighlight: [false, true, false, true],
       subtitle: "Consultoria Estratégica",
-      description: "Ajudamos as organizações na construção de um futuro próspero e sustentável. Continuaremos no propósito de sermos reconhecidos como o parceiro ideal nessa jornada.",
+      description: ["Ajudamos as organizações na construção de um ", "futuro próspero", " e ", "sustentável", ". Continuaremos no propósito de sermos reconhecidos como o parceiro ideal nessa jornada."],
+      descriptionHighlight: [false, true, false, true, false],
       image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80",
       cta: "Iniciar Jornada",
     },
     {
-      title: "Um caminho correto e necessário Apoio Especializado",
+      title: ["Um ", "caminho correto", " e ", "necessário", " Apoio Especializado"],
+      titleHighlight: [false, true, false, true, false],
       subtitle: "Excelência em Gestão",
-      description: "Nos dedicamos a cada projeto de maneira intensa. Mergulhamos com profundidade nos objetivos específicos de cada cliente.",
+      description: ["Nos dedicamos a cada projeto de maneira ", "intensa", ". Mergulhamos com ", "profundidade", " nos objetivos específicos de cada cliente."],
+      descriptionHighlight: [false, true, false, true, false],
       image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80",
       cta: "Descobrir Mais",
     },
     {
-      title: "A Verdadeira Razão da Nossa Existência é Deixar a Vida de Nossos Clientes Melhor",
+      title: ["A Verdadeira ", "Razão", " da Nossa ", "Existência", " é Deixar a Vida de Nossos Clientes Melhor"],
+      titleHighlight: [false, true, false, true, false],
       subtitle: "Soluções Futuras",
-      description: "Qual ajuda você precisa hoje ? Existe alguma coisa que poderia ser melhor na sua empresa ? Mais fácil, mais econômico, mais bonito ou ao menos,  com menos dor ? Nós podemos te ajudar.",
+      description: ["Qual ajuda você precisa ", "hoje", "? Existe alguma coisa que poderia ser ", "melhor", " na sua empresa? Mais fácil, mais econômico, mais bonito ou ao menos, com menos dor? Nós podemos te ajudar."],
+      descriptionHighlight: [false, true, false, true, false],
       image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80",
       cta: "Explorar Soluções",
     },
@@ -66,16 +72,24 @@ const Banner = () => {
                   <div className="flex items-center justify-center h-full pt-32">
                     <div className="banner-content text-center max-w-4xl mx-auto px-4">
                       <div className="wrapper space-y-6">
-                        <span className="text-[#FF0100] text-lg md:text-xl font-semibold tracking-wider uppercase block">
+                        <span className="text-[#FF0101] text-xl md:text-2xl font-bold tracking-wider uppercase block mb-4">
                           {slide.subtitle}
                         </span>
                         
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
-                          {slide.title}
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
+                          {slide.title.map((text, i) => (
+                            <span key={i} className={slide.titleHighlight[i] ? 'text-[#FF0101]' : ''}>
+                              {text}
+                            </span>
+                          ))}
                         </h1>
                         
-                        <p className="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto">
-                          {slide.description}
+                        <p className="text-gray-200 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed">
+                          {slide.description.map((text, i) => (
+                            <span key={i} className={slide.descriptionHighlight[i] ? 'text-[#FF0101] font-semibold' : ''}>
+                              {text}
+                            </span>
+                          ))}
                         </p>
                         
                         <div className="pt-4">
