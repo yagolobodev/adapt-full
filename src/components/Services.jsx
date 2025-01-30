@@ -13,18 +13,18 @@ const services = [
     icon: <FaArrowRight />,
   },
   {
-    id: 3,
-    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80',
-    title: 'Mentoria',
-    description: 'Programa estruturados para desenvolver habilidades em gestão estratégicas e resolver problemas específicos.',
-    link: '/servicos',
-    icon: <FaArrowRight />,
-  },
-  {
     id: 2,
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80',
     title: 'Assessoria',
     description: 'Acompanhamento contínuo do seu negócio, disponível nas modalidades online ou presencial.',
+    link: '/servicos',
+    icon: <FaArrowRight />,
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80',
+    title: 'Mentoria',
+    description: 'Programa desenvolvido para melhorar habilidades em gestão estratégica e resolver problemas.',
     link: '/servicos',
     icon: <FaArrowRight />,
   },
@@ -82,38 +82,49 @@ const Services = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <Link to={service.link} className="block">
-                <div className="relative overflow-hidden rounded-2xl bg-gray-100 min-h-[420px]">
-                  {/* Image */}
-                  <div className="aspect-[4/5] relative overflow-hidden">
+              <Link to={service.link} className="block h-[420px]">
+                <div className="relative h-full w-full overflow-hidden rounded-2xl bg-gray-100">
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-110 filter grayscale hover:grayscale-0"
+                      className="h-full w-full object-cover transform transition-transform duration-700 group-hover:scale-110 filter grayscale hover:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-black/30 transition-opacity duration-300 group-hover:opacity-0" />
                   </div>
 
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/60 to-transparent text-white transform translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
-                    <h3 className="text-2xl font-bold mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-200 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                      {service.description}
-                    </p>
-                    <div className="mt-4 flex items-center text-white/80 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-                      <span className="mr-2">Saiba mais</span>
-                      <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{
-                          duration: 1.5,
-                          repeat: Infinity,
-                          repeatType: "reverse"
-                        }}
-                      >
-                        <FaArrowRight className="w-4 h-4" />
-                      </motion.div>
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-end">
+                    <div className="bg-gradient-to-t from-black/90 via-black/60 to-transparent">
+                      <div className="px-8 pb-8">
+                        {/* Title Section - Fixed Height */}
+                        <div className="min-h-[80px] flex items-end">
+                          <h3 className="text-2xl font-bold text-white">
+                            {service.title}
+                          </h3>
+                        </div>
+                        
+                        {/* Description and CTA */}
+                        <div className="mt-4">
+                          <p className="text-gray-200 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                            {service.description}
+                          </p>
+                          <div className="mt-4 flex items-center text-white/80 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                            <span className="mr-2">Saiba mais</span>
+                            <motion.div
+                              animate={{ x: [0, 5, 0] }}
+                              transition={{
+                                duration: 1.5,
+                                repeat: Infinity,
+                                repeatType: "reverse"
+                              }}
+                            >
+                              <FaArrowRight className="w-4 h-4" />
+                            </motion.div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
